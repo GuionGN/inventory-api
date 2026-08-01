@@ -10,9 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
+
 
 
 
@@ -36,6 +41,20 @@ public class ItemController{
     public Item createItem(@RequestBody Item item) {
         return itemService.save(item);
     }
-    
-    
+
+    @GetMapping("/{id}")
+    public Item findById(@PathVariable Long id) {
+        return itemService.findById(id);
+    }
+
+    @PutMapping("/{id}")
+    public Item updateItem(@PathVariable Long id, @RequestBody Item item){
+        return itemService.update(id, item);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteItem(@PathVariable long id){
+        itemService.delete(id);
+    }
 }
