@@ -1,0 +1,40 @@
+# Inventory API
+
+Este proyecto está enfocado en el aprendizaje de APIs con Spring Boot, permitiendo gestionar una base de datos y realizar operaciones CRUD sobre items, con validaciones de datos incluidas.
+
+## Tecnologías
+
+- Java 26
+- Spring Boot (Spring Web, Spring Data JPA)
+- MySQL
+- Maven
+- Bean Validation (Jakarta Validation)
+
+## Funcionalidades
+
+- CRUD completo de items (crear, listar, buscar por id, actualizar, borrar)
+- Validaciones de datos (nombre obligatorio, cantidad y precio no negativos)
+- Manejo de errores centralizado (404 para items no encontrados, 400 para datos inválidos)
+
+## Requisitos previos
+
+- Java 26 (o el JDK que tengas)
+- Maven
+- MySQL corriendo localmente
+
+## Instalación
+
+1. Cloná el repo: `git clone https://github.com/GuionGN/inventory-api`
+2. Creá la base de datos: `CREATE DATABASE inventory_db;`
+3. Copiá `application.properties.example` a `application.properties` (en `src/main/resources/`) y completá tus credenciales de MySQL
+4. Corré el proyecto: `mvn spring-boot:run`
+
+## Endpoints
+
+| Método | Ruta | Body | Respuesta |
+|--------|------|------|-----------|
+| POST | `/items` | `{ "name", "quantity", "price" }` | `201` — item creado / `400` si falla validación |
+| GET | `/items` | — | `200` — lista de todos los items |
+| GET | `/items/:id` | — | `200` — item puntual / `404` si no existe |
+| PUT | `/items/:id` | `{ "name", "quantity", "price" }` | `200` — item actualizado / `400` / `404` |
+| DELETE | `/items/:id` | — | `204` sin body / `404` |
