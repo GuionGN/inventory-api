@@ -3,6 +3,8 @@ package com.gonzalo.inventoryapi.controller;
 import com.gonzalo.inventoryapi.model.Item;
 import com.gonzalo.inventoryapi.service.ItemService;
 
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,9 +38,10 @@ public class ItemController{
         return itemService.findAll();
     }
 
+    
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Item createItem(@RequestBody Item item) {
+    public Item createItem(@Valid @RequestBody Item item) {
         return itemService.save(item);
     }
 
@@ -48,7 +51,7 @@ public class ItemController{
     }
 
     @PutMapping("/{id}")
-    public Item updateItem(@PathVariable Long id, @RequestBody Item item){
+    public Item updateItem(@PathVariable Long id, @Valid @RequestBody Item item){
         return itemService.update(id, item);
     }
 

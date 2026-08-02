@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.*;
 
 @Entity
 public class Item {
@@ -11,8 +12,13 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "No texto vacío")
     private String name;
+
+    @PositiveOrZero(message = "No numeros negativos")
     private Integer quantity;
+
+    @Positive(message = "Tiene que ser mayor a cero")
     private Double price;   
 
     public Long getId() {
