@@ -1,20 +1,20 @@
 # Inventory API
 
-Este proyecto está enfocado en el aprendizaje de APIs con Spring Boot, permitiendo gestionar una base de datos y realizar operaciones CRUD sobre items, con validaciones de datos incluidas.
+Este proyecto está enfocado en el aprendizaje y manejo de APIs con Spring Boot, desarrollado para gestionar una base de datos y realizar operaciones CRUD sobre items, con validaciones de datos incluidas.
 
 ## Tecnologías
 
 - Java 26
-- Spring Boot (Spring Web, Spring Data JPA)
+- Spring Boot
 - MySQL
 - Maven
-- Bean Validation (Jakarta Validation)
+- Bean Validation 
 
 ## Funcionalidades
 
-- CRUD completo de items (crear, listar, buscar por id, actualizar, borrar)
-- Validaciones de datos (nombre obligatorio, cantidad y precio no negativos)
-- Manejo de errores centralizado (404 para items no encontrados, 400 para datos inválidos)
+- CRUD completo de items 
+- Validaciones de datos 
+- Manejo de errores centralizado 
 
 ## Requisitos previos
 
@@ -26,8 +26,8 @@ Este proyecto está enfocado en el aprendizaje de APIs con Spring Boot, permitie
 
 1. Cloná el repo: `git clone https://github.com/GuionGN/inventory-api`
 2. Creá la base de datos: `CREATE DATABASE inventory_db;`
-3. Copiá `application.properties.example` a `application.properties` (en `src/main/resources/`) y completá tus credenciales de MySQL
-4. Corré el proyecto: `mvn spring-boot:run`
+3. Copiá `application.properties.example` a `application.properties` (en `src/main/resources/`) y completá los datos de MySQL
+4. `mvn spring-boot:run` para iniciar.
 
 ## Endpoints
 
